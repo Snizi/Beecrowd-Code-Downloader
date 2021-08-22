@@ -10,19 +10,28 @@ def scrape_code(driver):
 
 
 def get_extension(language):
-    #Receives the language name and return the extension.
+    #Receives the language name that appears on URI and return the extension.
+    """
+    If you want to add another language, just edit the dictionaries
+    In this one, put the language as appears on URI and the file extension
+    """
     extensions = {'C++17': '.cpp',
                   'Python 3.9': '.py',
                   'Go': '.go',
-                  'C++': '.cpp'}
+                  'C++': '.cpp',
+                  'JavaScript': '.js'}
     return extensions.get(language)
 
 def get_language_name(extension):
     #Receives the language extension and return the formal name.
+    """
+    Here you edit adding the extension and the language name to create the folder
+    """
     languages = {
         '.cpp': 'C++',
         '.py': 'Python',
-        '.go': 'Golang'
+        '.go': 'Golang',
+        '.js': 'JavaScript'
     }
     return languages.get(extension)
 
