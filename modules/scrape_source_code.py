@@ -37,7 +37,8 @@ def get_language_name(extension):
         '.py': 'Python',
         '.go': 'Golang',
         '.js': 'JavaScript',
-        '.cs': 'C#'
+        '.cs': 'C#',
+        '.c': 'C'
     }
     return languages.get(extension)
 
