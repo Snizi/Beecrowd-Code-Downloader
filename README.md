@@ -9,7 +9,7 @@ Download all your URI Online Judge source codes with simple steps.
 ### Installing
 - Download and install Python 3.x.
 - Download the <a href="https://chromedriver.chromium.org/downloads">ChromeDriver</a> for your current Chrome version.
-- Clone the repository.
+- Clone the repository or <a href="https://github.com/Snizi/URI-Code-Downloader/archive/refs/heads/main.zip">download the zip</a>.
 
 ![CloningTherepo](https://user-images.githubusercontent.com/41025154/130366286-6f2d3d70-d817-4d8e-9b9a-911af49c9496.gif)
 - Go to the folder and run: pip install -r requirements.txt
