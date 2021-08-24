@@ -16,9 +16,14 @@ def get_extension(language):
     In this one, put the language as appears on URI and the file extension
     """
     extensions = {'C++17': '.cpp',
-                  'Python 3.9': '.py',
-                  'Go': '.go',
                   'C++': '.cpp',
+                  'C#': '.cs',
+                  'C99': '.c',
+                  'C': '.c',
+                  'Python 3': '.py',
+                  'Python 3.9': '.py',
+                  'Python 3.8': '.py',
+                  'Go': '.go',
                   'JavaScript': '.js'}
     return extensions.get(language)
 
@@ -31,7 +36,8 @@ def get_language_name(extension):
         '.cpp': 'C++',
         '.py': 'Python',
         '.go': 'Golang',
-        '.js': 'JavaScript'
+        '.js': 'JavaScript',
+        '.cs': 'C#'
     }
     return languages.get(extension)
 
