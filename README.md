@@ -20,17 +20,20 @@ Download all your URI Online Judge source codes with simple steps.
 - If you are running Windows, put the ChromeDriver inside of the project folder.
 
 
-## Supported source codes:
+### Currently, only support source codes written in the following programming languages:
 - C++17
 - C++
-- Python
+- C99
+- C
+- C#
+- Python 3.x
 - Go
 - JavaScript
 ### If you want to add support to another language, just edit this two functions:
 ![AddingLanguageSupport](https://user-images.githubusercontent.com/41025154/130366518-35e441f6-4193-4215-9609-07fc189b4a42.gif)
 
 
-## Running the script
+### Running the script
 - Go to the repository folder using the terminal.
 - python3 main.py
 - You will be prompted to enter your email and password
@@ -38,7 +41,7 @@ Download all your URI Online Judge source codes with simple steps.
 ![Launching](https://user-images.githubusercontent.com/41025154/130366845-1c13a1df-ea6f-4aef-817a-f09ec0bdafa9.gif)
 - Enter and wait.
 
-## Folder Structure
+### Folder Structure
 - The source codes will be divided according to the programming language that they were written.
 - Each folder contains the files with: exercise number, source code and the proper extension.
 
