@@ -1,5 +1,10 @@
 import os
 
+from selenium.common.exceptions import NoSuchElementException
+
+from .constants import SUBMISSIONS_LIST
+
+
 def convert_web_element(web_element):
     """
     This function receives a web element list, iterate over it
@@ -10,9 +15,15 @@ def convert_web_element(web_element):
 
 
 def get_max_pages_num(driver):
-    submissions_list = 'https://www.urionlinejudge.com.br/judge/pt/runs?answer_id=1&page='
-    driver.get(submissions_list)
-    return int(str(driver.find_element_by_xpath('//*[@id="table-info"]').text).split()[2])
+
+    driver.get(SUBMISSIONS_LIST)
+    try:
+        total_pages = int(str(driver.find_element_by_xpath(
+            '//*[@id="table-info"]').text).split()[2])
+        return total_pages
+    except NoSuchElementException:
+        return None
+
 
 def create_dir(directory):
     folder = directory + '/'
@@ -20,6 +31,7 @@ def create_dir(directory):
         os.mkdir(folder)
         return folder
     return folder
+
 
 def read_file(file_path):
     with open(file_path) as f:

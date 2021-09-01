@@ -3,14 +3,17 @@ File dedicated to the extraction and manipulation of the source code.
 """
 from .helpers import create_dir
 import os.path
+from .constants import BASE_FOLDER
+
 
 def scrape_code(driver):
-    code_lines = driver.find_elements_by_xpath('//*[@id="code"]/div[2]/div/div[3]/div')
+    code_lines = driver.find_elements_by_xpath(
+        '//*[@id="code"]/div[2]/div/div[3]/div')
     return code_lines
 
 
 def get_extension(language):
-    #Receives the language name that appears on URI and return the extension.
+    # Receives the language name that appears on URI and return the extension.
     """
     If you want to add another language, just edit the dictionaries
     In this one, put the language as appears on URI and the file extension
@@ -27,8 +30,9 @@ def get_extension(language):
                   'JavaScript': '.js'}
     return extensions.get(language)
 
+
 def get_language_name(extension):
-    #Receives the language extension and return the formal name.
+    # Receives the language extension and return the formal name.
     """
     Here you edit adding the extension and the language name to create the folder
     """
@@ -42,8 +46,9 @@ def get_language_name(extension):
     }
     return languages.get(extension)
 
+
 def write_to_file(elements, exec_id, language):
-    src_folder = 'URI-Source-Codes/'
+    src_folder = BASE_FOLDER
     extension = get_extension(language)
     formal_language_name = get_language_name(extension)
 
