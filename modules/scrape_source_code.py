@@ -2,7 +2,7 @@
 File dedicated to the extraction and manipulation of the source code.
 """
 from .helpers import create_dir
-
+import os.path
 
 def scrape_code(driver):
     code_lines = driver.find_elements_by_xpath('//*[@id="code"]/div[2]/div/div[3]/div')
@@ -49,6 +49,7 @@ def write_to_file(elements, exec_id, language):
 
     lang_dir = create_dir(src_folder + formal_language_name)
 
-    with open(lang_dir + exec_id + extension, 'w') as f:
-        for element in elements:
-            f.write(element.text + '\n')
+    if not os.path.isfile(lang_dir + exec_id + extension):
+        with open(lang_dir + exec_id + extension, 'w') as f:
+            for element in elements:
+                f.write(element.text + '\n')

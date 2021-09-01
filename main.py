@@ -1,4 +1,4 @@
-from time import sleep
+import time
 
 from selenium import webdriver
 from selenium.common.exceptions import StaleElementReferenceException
@@ -8,12 +8,14 @@ from modules.helpers import get_max_pages_num, create_dir
 from modules.login import login
 from modules.scrape_answers import scrape_answers
 from modules.scrape_source_code import scrape_code, write_to_file
+from modules.github_api import github
 
 chrome_options = Options()
 chrome_options.add_argument('--headless')
 driver = webdriver.Chrome(options=chrome_options)
 
-submission_url = 'https://www.urionlinejudge.com.br/judge/pt/runs/code/'
+SUBMISSION_URL = 'https://www.urionlinejudge.com.br/judge/pt/runs/code/'
+
 
 login(driver)
 create_dir('URI-Source-Codes')
@@ -26,16 +28,22 @@ for cur_page in range(1, total_pages + 1):
     for i in range(len(submissions_ids)):
 
         try:
-            driver.get(submission_url + submissions_ids[i])
+            driver.get(SUBMISSION_URL + submissions_ids[i])
             code_lines = scrape_code(driver)
             write_to_file(code_lines, exec_ids[i], language_extensions[i])
         except StaleElementReferenceException:
-            driver.get(submission_url + submissions_ids[i])
-            sleep(1)
+            driver.get(SUBMISSION_URL + submissions_ids[i])
+            time.sleep(1)
             code_lines = scrape_code(driver)
-            sleep(1)
+            time.sleep(1)
             write_to_file(code_lines, exec_ids[i], language_extensions[i])
         except IndexError:
             print('All the source codes were downloaded.')
             driver.quit()
-            break
+            upload_to_github = input("Do you want to upload the source codes to GitHub? Y/N?")
+            if upload_to_github.upper() == 'Y': 
+                github()
+                print("All source codes were uploaded to GitHub =)")
+                break
+            else:
+                break
