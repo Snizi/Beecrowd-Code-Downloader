@@ -1,6 +1,6 @@
 # URI-Code-Downloader
 
-Download all your URI Online Judge source codes with simple steps.
+Download all your URI Online Judge source codes and upload to GitHub with simple steps.
 
 
 ### Prerequisites
