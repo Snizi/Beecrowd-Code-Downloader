@@ -2,7 +2,7 @@ from getpass import getpass
 
 
 def login(driver):
-    login_url = 'https://www.urionlinejudge.com.br/judge/pt/login'
+    login_url = 'https://www.beecrowd.com.br/judge/en/login'
 
     email = input('Email: ')
     password = getpass('Password: ')

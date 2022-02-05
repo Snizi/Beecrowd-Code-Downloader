@@ -15,7 +15,7 @@ from modules.constants import SUBMISSION_URL
 def main():
     chrome_options = Options()
     chrome_options.add_argument('--headless')
-    driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome('./chromedriver', options=chrome_options)
 
     login(driver)
 
